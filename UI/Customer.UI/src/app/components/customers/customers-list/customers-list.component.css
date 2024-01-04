@@ -1,0 +1,9 @@
+.customer-title{
+    padding-top: 5vh;
+}
+table {
+    width: 100%;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }

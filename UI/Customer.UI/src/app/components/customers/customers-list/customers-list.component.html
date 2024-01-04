@@ -1,0 +1,64 @@
+<div class="container">
+  <h1 class="mb-3 customer-title">Customer Information</h1>
+  <p *ngIf="!customers || customers.length == 0" style="padding-top: 2vh;">No Customers found.</p>
+
+  <div *ngIf="dataSource.length != 0" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer ID</th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">{{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">{{ element.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">{{ element.email }}</td>
+      </ng-container>
+
+      <!-- createdDateTime Column -->
+      <ng-container matColumnDef="createdDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date</th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">
+          {{ element.createdDateTime | date : "MM-dd-yy HH:mm" }}
+        </td>
+      </ng-container>
+
+      <!-- updatedDateTime Column -->
+      <ng-container matColumnDef="updatedDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Last Updated Date
+        </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">
+          {{ element.updatedDateTime | date : "MM-dd-yy HH:mm" }}
+        </td>
+      </ng-container>
+
+      <!-- edit Column -->
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'background-color': lastSelectedCutomerId == element.id ? '#fffcdf' : 'white' }">
+          <a [routerLink]="['/edit/', element.id]">View</a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 50, 100]"
+      showFirstLastButtons
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+</div>

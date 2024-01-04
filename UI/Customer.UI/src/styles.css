@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.navbar{
+    background-color: #3f51b5 !important;
+    color: white;
+    box-shadow: 0 5px 10px #d9def7 ;
+}
+
+.nav-link{
+    color: rgb(224, 224, 224) !important;
+}
+.active{
+    color: white !important;
+}
+.navbar-brand{
+    color: white !important;
+    font-weight: 600 !important;
+}
+.content{
+    background-color: rgb(247, 251, 254);
+    min-height: 92vh;
+}
+.mat-form-field-flex {
+    width: 350px !important;
+}

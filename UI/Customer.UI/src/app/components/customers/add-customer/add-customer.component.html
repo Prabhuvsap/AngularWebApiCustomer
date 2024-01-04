@@ -1,0 +1,46 @@
+<div class="container main-container">
+    <div class="backbutton">
+     <button mat-stroked-button color="primary" (click)="onBackButtonClick()">Back</button>
+    </div>
+    <div class="formcard">
+        <form #form="ngForm" (ngSubmit)="addCustomer()">
+        <mat-card >
+            <mat-card-content>
+                <h2 class="mb-5">Add New Customer : </h2>
+                <div >
+                    <p class="formlabel">
+                        First Name  : 
+                    </p>
+                    <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input type="text" name="firstName" [(ngModel)]="addCustomerRequest.firstName" matInput>
+                    </mat-form-field>
+                </div> 
+                <div>
+                    <p class="formlabel">
+                        Last Name  : 
+                    </p>
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" name="lastName" [(ngModel)]="addCustomerRequest.lastName" matInput>
+                    </mat-form-field>
+                </div> 
+                <div>
+                    <p class="formlabel">
+                        Email Id  : 
+                    </p>
+                    <mat-form-field>
+                        <mat-label>Email </mat-label>
+                        <input type="email" name="email" [(ngModel)]="addCustomerRequest.email" matInput>
+                    </mat-form-field>
+                </div> 
+                <button mat-raised-button color="primary" >Save</button>
+               
+            </mat-card-content>
+          </mat-card>
+        </form>
+    </div>
+    
+
+</div>
+

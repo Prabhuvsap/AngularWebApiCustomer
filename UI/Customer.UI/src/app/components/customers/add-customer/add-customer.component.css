@@ -1,0 +1,19 @@
+.backbutton{
+    width: 100%;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    text-align: right;
+}
+
+.main-container{
+    padding-top: 5vh  !important;
+    margin-bottom: 5px  !important;
+}
+.formcard{
+    padding-top: 2vh;
+}
+.formlabel{
+    color: rgb(97, 97, 97);
+    min-width: 50px  !important;
+}

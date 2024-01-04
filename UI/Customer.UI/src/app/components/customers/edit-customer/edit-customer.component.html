@@ -1,0 +1,67 @@
+<div class="container main-container">
+    <div class="backbutton">
+     <button mat-stroked-button color="primary" (click)="onBackButtonClick()">Back</button>    
+    </div>
+    <div class="formcard">
+        <form #form="ngForm">
+        <mat-card >
+            <mat-card-content>
+                <h2 class="mb-5">Edit Customer</h2>
+                <div >
+                    <p class="formlabel">
+                        Id  : 
+                    </p>
+                    <mat-form-field>
+                        <input type="text" name="id" [(ngModel)]="editCustomerDetails.id" readonly matInput>
+                    </mat-form-field>
+                </div> 
+                <div >
+                    <p class="formlabel">
+                        First Name  : 
+                    </p>
+                    <mat-form-field>
+                        <input type="text" name="firstName" [(ngModel)]="editCustomerDetails.firstName" matInput>
+                    </mat-form-field>
+                </div> 
+                <div>
+                    <p class="formlabel">
+                        Last Name  : 
+                    </p>
+                    <mat-form-field>
+                        <input type="text" name="lastName" [(ngModel)]="editCustomerDetails.lastName" matInput>
+                    </mat-form-field>
+                </div> 
+                <div>
+                    <p class="formlabel">
+                        Email Id  : 
+                    </p>
+                    <mat-form-field>
+                        <input type="email" name="email" [(ngModel)]="editCustomerDetails.email" matInput>
+                    </mat-form-field>
+                </div> 
+                <div >
+                    <p class="formlabel">
+                        Created DateTime  : 
+                    </p>
+                    <mat-form-field>
+                        <input type="text" name="CreatedDateTime" [(ngModel)]="editCustomerDetails.createdDateTime" readonly matInput>
+                    </mat-form-field>
+                </div>
+                <div >
+                    <p class="formlabel">
+                        Updated DateTime : 
+                    </p>
+                    <mat-form-field>
+                        <input type="text" name="UpdatedDateTime" [(ngModel)]="editCustomerDetails.updatedDateTime" readonly matInput>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button color="primary" (click)="editCustomer()">Save</button>  
+                <button mat-raised-button class="deleteBtn" color="warn" (click)="onDeleteButtonClick()">Delete</button>              
+            </mat-card-content>
+          </mat-card>
+        </form>
+        
+    </div>
+    
+
+</div>

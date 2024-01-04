@@ -1,0 +1,9 @@
+
+<h1 mat-dialog-title>Customer</h1>
+<div mat-dialog-content>
+  <p> Are you sure want to delete the customer?</p>  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onDeleteButtonClick()">Ok</button>
+  <button mat-button [mat-dialog-close] cdkFocusInitial>Cancel</button>
+</div>
