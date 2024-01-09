@@ -12,6 +12,6 @@ namespace Customer.API.Models
         public string Email { get ; set ; }
         public DateTime CreatedDateTime { get ; set ; }
         public DateTime UpdatedDateTime { get ; set ; }
-
+        public string Address { get ; set ; }
     }
 }

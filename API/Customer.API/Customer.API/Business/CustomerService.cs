@@ -1,20 +1,19 @@
 ﻿
 using Customer.API.Business.Interfaces;
 using Customer.API.Data;
+using System;
 
 namespace Customer.API.Business
 {
     public class CustomerService : ICustomerService
     {
-        private readonly ICustomerService _customerService;
         private CustomerDBContext customerData;
-        public CustomerService(ICustomerService customerService) {
-            _customerService = customerService;
-        }
-
-        public CustomerService()
+       // private readonly IDependency _dependency;
+   
+        public CustomerService()//IDependency dependency
         {
             customerData = new CustomerDBContext();
+            //_dependency = new CDependency(dependency);
         }
         public async Task<IList<ICustomer>> GetCustomers()
         {
@@ -24,13 +23,14 @@ namespace Customer.API.Business
 
         public async Task<ICustomer> AddCustomer(ICustomer customer)
         {
-            customer.Id = Guid.NewGuid().ToString();
+            var guidID = Guid.NewGuid();
+            customer.Id = guidID.ToString();
             customer.FirstName = customer.FirstName;
             customer.LastName = customer.LastName;
             customer.Email = customer.Email;
             customer.CreatedDateTime = DateTime.Now;
             customer.UpdatedDateTime = DateTime.Now;
-            await Task.Run(() => customerData.AddCustomerData(customer));
+            await Task.Run(() => customerData.AddCustomerData(customer));           
             return customer;
         }
 
@@ -44,6 +44,7 @@ namespace Customer.API.Business
         {
             customer.UpdatedDateTime = DateTime.Now;
             await Task.Run(() => customerData.UpdateCustomerData(customer));
+            //await Task.Run(() => _dependency.AddAddress(Guid.Parse(customer.Id), customer.Address));
             return customer;
         }
 

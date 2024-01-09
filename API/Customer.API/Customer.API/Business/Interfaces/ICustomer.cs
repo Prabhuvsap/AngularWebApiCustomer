@@ -6,6 +6,7 @@
         string FirstName { get; set; }
         string LastName { get; set; }
         string Email { get; set; }
+        string Address { get; set; }
         DateTime CreatedDateTime { get; set; }
         DateTime UpdatedDateTime { get; set; }
 

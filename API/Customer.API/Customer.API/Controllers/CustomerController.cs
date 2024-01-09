@@ -11,15 +11,17 @@ namespace Customer.API.Controllers
     public class CustomerController : Controller
     {
         private readonly ICustomerService _customerService;
-        public CustomerController()
+        private readonly IDependency _dependency;
+        public CustomerController(ICustomerService customerService, IDependency dependency)
         {
-            _customerService = new CustomerService();
+            _customerService = customerService;
+            _dependency = dependency;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCustomers()
         {
-            var response = await _customerService.GetCustomers();
+            var response = await _customerService.GetCustomers();            
             return Ok(response);
         }
 
@@ -27,6 +29,7 @@ namespace Customer.API.Controllers
         public async Task<IActionResult> AddCustomer(CustomerModel customerRequest)
         {     
             await _customerService.AddCustomer(customerRequest);
+            await _dependency.AddAddress(customerRequest.Id, customerRequest.Address);
             return Ok();
         }
 
@@ -39,6 +42,7 @@ namespace Customer.API.Controllers
             {
                 return NotFound();
             }
+            customer.Address = await _dependency.GetAddress(id);
             return Ok(customer);
         }
 
@@ -52,6 +56,7 @@ namespace Customer.API.Controllers
                 return NotFound();
             }
             var cusResponse = await _customerService.UpdateCustomer(customerRequest);
+            cusResponse.Address = await _dependency.UpdateAddress(customerRequest.Id, customerRequest.Address);
             return Ok(cusResponse);
         }
 
